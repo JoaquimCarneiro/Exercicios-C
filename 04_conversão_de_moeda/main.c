@@ -13,6 +13,6 @@ int main(){
     scanf("%f", &moeda);
     printf("O valor original é: %.2f\n", moeda);
     moedaConvertida = moeda * fatorConversao;
-    printf("O valor convertido é: %.2f", moedaConvertida);
+    printf("O valor convertido é: %.2f\n", moedaConvertida);
     return 0;
 }
