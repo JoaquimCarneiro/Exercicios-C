@@ -74,17 +74,15 @@ void sub_titulo(int largura, char caractere, char *titulo, int espacoAntes, int 
 void menu(int largura,
 	  char caractere,
 	  char *titulo,
-	  int option_size,
+	  int option_size, // not really needed
 	  int n_options,
 	  char options[n_options][option_size],
 	  int espacoAntes,
 	  int espacoDepois){
     sub_titulo(largura-2, caractere, titulo, 0, 2); // por razão que não estou a detectar estão a ser inseriddos 2 caracteres a mais
-    printf( "\t1 - Área do triangulo\n"
-            "\t2 - Área do Quadrilatero\n"
-            "\t3 - Área do círculo\n"
-            "\t4 - Hipotenusa do triangulo\n"
-            "\t0 - Abortar\n"
-            );
+    for(int i = 0; i < n_options; i++){
+	printf( "\t%i - %s\n", i + 1, options[i]);
+    }
+    printf("\t0 - Abortar\n");
     separador(largura, caractere, 1, 1);
 }

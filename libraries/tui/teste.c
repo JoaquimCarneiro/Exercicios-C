@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include "tui.h"
 
+#define OPTION_SIZE 50
+#define N_OPTIONS 5
+
 int main(){
-	int option_size = 50, n_options = 5;
-	char options[n_options][option_size] = {
+	char options[N_OPTIONS][OPTION_SIZE] = {
 		"Opção 1",
 		"opção 2",
 		"opção 3",
