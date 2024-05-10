@@ -78,7 +78,7 @@ void menu(int largura,
 	  int n_options,
 	  char options[n_options][option_size],
 	  int espacoAntes,
-	  int espacoDepois){
+	 int espacoDepois){
     sub_titulo(largura-2, caractere, titulo, 0, 2); // por razão que não estou a detectar estão a ser inseriddos 2 caracteres a mais
     for(int i = 0; i < n_options; i++){
 	printf( "\t%i - %s\n", i + 1, options[i]);
