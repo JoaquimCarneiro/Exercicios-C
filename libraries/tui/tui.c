@@ -71,18 +71,23 @@ void sub_titulo(int largura, char caractere, char *titulo, int espacoAntes, int 
     }
 }
 
-void menu(int largura,
-	  char caractere,
-	  char *titulo,
-	  int option_size, // not really needed
-	  int n_options,
-	  char options[n_options][option_size],
-	  int espacoAntes,
-	 int espacoDepois){
+void menu(
+            int largura, // largura do menu
+            char caractere, // caractere principal construir o menu
+            char *titulo, // titulo do menu
+            int option_size, // necessário para o array options
+            int n_options, // numero de opções
+            char options[n_options][option_size], // array de opções a apresentar ao utilizador
+            int espacoAntes, // espaços antes do menu
+            int espacoDepois // espaços depois do menu
+        ){
     sub_titulo(largura-2, caractere, titulo, 0, 2); // por razão que não estou a detectar estão a ser inseriddos 2 caracteres a mais
+    separador(largura, '-', 0, 1);
     for(int i = 0; i < n_options; i++){
-	printf( "\t%i - %s\n", i + 1, options[i]);
+	    printf( "\t%i - %s\n", i + 1, options[i]);
     }
+    separador(largura, '-', 0, 1);
     printf("\t0 - Abortar\n");
+    separador(largura, '-', 0, 1);
     separador(largura, caractere, 1, 1);
 }
