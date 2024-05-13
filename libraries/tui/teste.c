@@ -12,6 +12,6 @@ int main(){
 		"opção 4",
 		"opção 5"
 	};
-	menu(96, '#', "Teste de Menu", 50, 5, options, 0, 1);
+	menu(96, '#', '-', "Teste de Menu", 50, 5, options, 1, 'X', "Sair", 0, 1);
 	return 0;
 }

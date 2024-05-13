@@ -11,7 +11,8 @@ void flushBuffer(){
 void pausar(){
     printf("Prima ENTER para continuar ");
     getchar(); //
-    // pode ser necessário fazer flushbuffer() após executar esta função
+    // pode ser necessário fazer flushbuffer() após executar esta função,
+    // visto o getchar deixar um \n como lixo
 }
 
 void separador(int largura, char caractere, int espacoAntes, int espacoDepois){
@@ -74,20 +75,30 @@ void sub_titulo(int largura, char caractere, char *titulo, int espacoAntes, int 
 void menu(
             int largura, // largura do menu
             char caractere, // caractere principal construir o menu
+            char caractere_sec, // caractere secundário para separadores internos
             char *titulo, // titulo do menu
             int option_size, // necessário para o array options
             int n_options, // numero de opções
             char options[n_options][option_size], // array de opções a apresentar ao utilizador
+            int option_type, // se a opção é um numero ou um caractere 0 - numero !0 - alfa
+            char exit_option, // char para a opção de saida
+            char *exit_text, // texto da opção de saida
             int espacoAntes, // espaços antes do menu
             int espacoDepois // espaços depois do menu
         ){
-    sub_titulo(largura-2, caractere, titulo, 0, 2); // por razão que não estou a detectar estão a ser inseriddos 2 caracteres a mais
-    separador(largura, '-', 0, 1);
-    for(int i = 0; i < n_options; i++){
-	    printf( "\t%i - %s\n", i + 1, options[i]);
+    int alfa_num;
+    if(option_type == 0){
+        alfa_num = 49; // ASCII para 1
+    }else{
+        alfa_num = 65; // ASCII para A
     }
-    separador(largura, '-', 0, 1);
-    printf("\t0 - Abortar\n");
-    separador(largura, '-', 0, 1);
+    sub_titulo(largura-2, caractere, titulo, 0, 2); // por razão que não estou a detectar estão a ser inseriddos 2 caracteres a mais
+    separador(largura, caractere_sec, 0, 1);
+    for(int i = 0; i < n_options; i++){
+	    printf( "\t%c - %s\n", i + alfa_num, options[i]); // items do menu
+    }
+    separador(largura, caractere_sec, 0, 1);
+    printf("\t%c - %s\n", exit_option, exit_text); // exit option
+    separador(largura, caractere_sec, 0, 1);
     separador(largura, caractere, 1, 1);
 }
